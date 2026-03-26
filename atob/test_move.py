@@ -48,7 +48,7 @@ class WheelTester(Node):
         self.get_logger().info(f"Moving forward | speed={speed} | duration={duration}s")
         end = time.time() + duration
         while time.time() < end:
-            self.publish_wheels(Vx=0.0, Vy=-speed, W=0.0)
+            self.publish_wheels(Vx=speed, Vy=1.0, W=0.0)
             rclpy.spin_once(self, timeout_sec=0.1)
         self.stop()
 
@@ -76,11 +76,11 @@ def main():
     node = WheelTester()
 
     # ── test sequence — swap these out as needed ──
-    node.move_forward(speed=2.0, duration=10.0)
+    node.move_forward(speed=5.0, duration=10.0)
     time.sleep(0.5)
-    node.turn_left(speed=2.0, duration=1.5)
+    node.turn_left(speed=5.0, duration=5.0)
     time.sleep(0.5)
-    node.turn_right(speed=2.0, duration=1.5)
+    node.turn_right(speed=5.0, duration=5.0)
 
     node.destroy_node()
     rclpy.shutdown()
