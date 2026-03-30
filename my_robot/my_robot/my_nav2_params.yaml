@@ -11,9 +11,9 @@ amcl:
     odom_frame_id: "odom"
     set_initial_pose: true
     initial_pose:
-      x: 1.321
-      y: 0.627
-      z: 0.0
+      x: 0.05
+      y: 0.05
+      z: 0.05
       yaw: 0.0
     resample_interval: 1
     robot_model_type: "nav2_amcl::OmniMotionModel"
