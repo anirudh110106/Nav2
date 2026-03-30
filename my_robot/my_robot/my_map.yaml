@@ -1,4 +1,4 @@
-image: my_map.pgm
+image: /home/rpd/Nav2/my_robot/my_robot/my_map.pgm
 mode: trinary
 resolution: 0.050
 origin: [0.100, -2.620, 0]

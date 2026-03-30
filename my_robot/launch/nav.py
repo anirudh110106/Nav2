@@ -12,19 +12,19 @@ def generate_launch_description():
     map_file = '/home/rpd/Nav2/my_robot/my_robot/my_map.yaml'
 
     return LaunchDescription([
-        # 1. Base to Camera Transforms
+
+        # 0. THE SPINE: Odometry + Full TF Tree Publisher
+        # Publishes odom -> base_footprint -> base_link -> camera_link -> camera_depth_frame
+        # AMCL needs this TF chain to exist before it can publish the map frame
         Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link']
-        ),
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            arguments=['0.1', '0', '0.2', '0', '0', '0', 'base_link', 'camera_link']
+            package='my_robot',
+            executable='odom',
+            name='motor_odom',
+            output='screen'
         ),
 
-        # 2. Depth to Laser Scan
+        # 1. THE EYES: Depth to Laser Scan
+        # Takes 3D camera data and flattens it into a 2D laser scan for AMCL
         Node(
             package='depthimage_to_laserscan',
             executable='depthimage_to_laserscan_node',
@@ -32,11 +32,18 @@ def generate_launch_description():
             remappings=[
                 ('depth', '/camera/camera/depth/image_rect_raw'),
                 ('depth_camera_info', '/camera/camera/depth/camera_info'),
+                ('scan', '/scan')
             ],
-            parameters=[{'scan_time': 0.033, 'range_min': 0.2, 'range_max': 5.0, 'output_frame': 'camera_depth_frame'}]
+            parameters=[{
+                'scan_time': 0.033,
+                'range_min': 0.45,
+                'range_max': 5.0,
+                'output_frame': 'camera_depth_frame'
+            }]
         ),
 
-        # 3. Nav2 Bringup
+        # 2. THE BRAIN: Nav2 Bringup
+        # Launches AMCL, the Planner, and the Controller
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(nav2_launch_file),
             launch_arguments={
@@ -46,12 +53,11 @@ def generate_launch_description():
             }.items()
         ),
 
-        # 4. THE HARDCODED STARTING POSITION
-        # This publishes the (0,0) coordinate 15 times (once per second). 
-        # It guarantees Nav2 catches it during bootup!
+        # 3. THE AUTO-START: Initial Pose Injector
+        # Blasts the (0,0) coordinate 20 times to ensure AMCL catches it on boot
         ExecuteProcess(
             cmd=[
-                'ros2', 'topic', 'pub', '-r', '1', '--times', '15',
+                'ros2', 'topic', 'pub', '-r', '1', '--times', '20',
                 '/initialpose', 'geometry_msgs/msg/PoseWithCovarianceStamped',
                 '"{header: {frame_id: \'map\'}, pose: {pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {w: 1.0}}}}"'
             ],

@@ -1,159 +1,107 @@
 #!/usr/bin/env python3
-
 import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist, TransformStamped
 import tf2_ros
 import math
-
 from st3215 import ST3215
 
-# Initialize the servo controller
 servo = ST3215('/dev/ttyACM0')
-
 TICKS_PER_REV = 4096
 SQRT3 = 1.73205
 
 class MotorOdom(Node):
     def __init__(self):
         super().__init__('motor_odom')
-
-        # === PHYSICAL PARAMETERS ===
-        self.wheel_radius = 0.05
-        self.robot_radius = 0.15 # Distance from center of robot to the wheel
+        self.wheel_radius, self.robot_radius = 0.05, 0.15
+        self.x, self.y, self.theta = 0.0, 0.0, 0.0
+        self.prev_1, self.prev_2, self.prev_3 = None, None, None
         
-        self.servo_ids = [1, 2, 3] # 1: Front-Left, 2: Front-Right, 3: Back
+        # --- THE UNIVERSAL FIX ---
+        # Change this number to 0.0, 90.0, 180.0, or 270.0 
+        # Keep changing it until pressing "i" moves the robot perfectly forward!
+        self.heading_offset_deg = 120.0 
 
-        # === MOTOR INITIALIZATION ===
-        for s_id in self.servo_ids:
-            try:
-                servo.SetMode(s_id, 1)
-                servo.StartServo(s_id)
-            except:
-                pass
-
-        # === STATE (3 Independent Wheels) ===
-        self.prev_1 = None
-        self.prev_2 = None
-        self.prev_3 = None
-        self.x = 0.0
-        self.y = 0.0
-        self.theta = 0.0
-        self.last_time = self.get_clock().now()
-
-        # === ROS INFRASTRUCTURE ===
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
         self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
         self.timer = self.create_timer(0.033, self.update)
 
-    # === TELEOP HANDLER (INVERSE KINEMATICS) ===
     def cmd_callback(self, msg):
-        """Converts teleop commands into 3-wheel omni speeds"""
-        vx = msg.linear.x  # Forward/Back
-        vy = msg.linear.y  # Strafing (Left/Right)
-        w  = msg.angular.z # Spinning
-
-        # Omni-wheel matrix math
-        # If your wheels spin backward, flip the + and - signs here!
-        v1 = -(SQRT3 / 2.0) * vx + 0.5 * vy + self.robot_radius * w  # Front Left
-        v2 =  (SQRT3 / 2.0) * vx + 0.5 * vy + self.robot_radius * w  # Front Right
-        v3 =  0.0 * vx           - 1.0 * vy + self.robot_radius * w  # Back
-
-        # Keep the multiplier so your q/z speed controls work!
-        mult = 3000 
+        cmd_x, cmd_y, w = msg.linear.x, msg.linear.y, msg.angular.z
         
+        # Apply the rotation matrix to driving commands
+        rad = math.radians(self.heading_offset_deg)
+        vx = cmd_x * math.cos(rad) - cmd_y * math.sin(rad)
+        vy = cmd_x * math.sin(rad) + cmd_y * math.cos(rad)
+
+        v1 = -(SQRT3/2.0)*vx + 0.5*vy + self.robot_radius*w
+        v2 = (SQRT3/2.0)*vx + 0.5*vy + self.robot_radius*w
+        v3 = -1.0*vy + self.robot_radius*w
         try:
-            servo.Rotate(1, int(v1 * mult))
-            servo.Rotate(3, int(v2 * mult))
-            servo.Rotate(2, int(v3 * mult))
-        except Exception:
-            pass
+            for i, v in enumerate([v1, v2, v3], 1): servo.Rotate(i, int(v * 3000))
+        except: pass
 
-    # === READ ALL 3 MOTORS INDEPENDENTLY ===
-    def read_motor_positions(self):
-        try:
-            p1 = servo.ReadPosition(1)
-            p2 = servo.ReadPosition(2)
-            p3 = servo.ReadPosition(3)
-            if p1 is None or p2 is None or p3 is None:
-                return self.prev_1, self.prev_2, self.prev_3
-            return p1, p2, p3
-        except Exception:
-            return self.prev_1, self.prev_2, self.prev_3
-
-    def compute_delta(self, curr, prev):
-        delta = curr - prev
-        if delta > TICKS_PER_REV / 2: delta -= TICKS_PER_REV
-        elif delta < -TICKS_PER_REV / 2: delta += TICKS_PER_REV
-        return delta
-
-    # === ODOMETRY MAPPER (FORWARD KINEMATICS) ===
     def update(self):
-        p1, p2, p3 = self.read_motor_positions()
-        if p1 is None: return
-
-        if self.prev_1 is None:
+        try:
+            p1, p2, p3 = servo.ReadPosition(1), servo.ReadPosition(2), servo.ReadPosition(3)
+        except: return
+        if p1 is None or self.prev_1 is None:
             self.prev_1, self.prev_2, self.prev_3 = p1, p2, p3
-            self.last_time = self.get_clock().now()
             return
 
-        dist_per_tick = (2.0 * math.pi * self.wheel_radius) / TICKS_PER_REV
-        d1 = self.compute_delta(p1, self.prev_1) * dist_per_tick
-        d2 = self.compute_delta(p2, self.prev_2) * dist_per_tick
-        d3 = self.compute_delta(p3, self.prev_3) * dist_per_tick
-        
+        def delta(c, p):
+            d = c - p
+            if d > 2048: d -= 4096
+            elif d < -2048: d += 4096
+            return d * (2.0 * math.pi * self.wheel_radius / 4096)
+
+        d1, d2, d3 = delta(p1, self.prev_1), delta(p2, self.prev_2), delta(p3, self.prev_3)
         self.prev_1, self.prev_2, self.prev_3 = p1, p2, p3
 
-        # 3-Wheel Omni Odometry Math
-        # This will perfectly sync the map with your camera!
-        dx_local = (d2 - d1) / SQRT3
-        dy_local = (d1 + d2 - (2.0 * d3)) / 3.0
-        dtheta   = (d1 + d2 + d3) / (3.0 * self.robot_radius)
-
-        # Convert local movement to global map movement
-        self.x += dx_local * math.cos(self.theta) - dy_local * math.sin(self.theta)
-        self.y += dx_local * math.sin(self.theta) + dy_local * math.cos(self.theta)
-        self.theta += dtheta
-
-        current_time = self.get_clock().now()
-        qw, qz = math.cos(self.theta / 2.0), math.sin(self.theta / 2.0)
-
-        # Odom Msg
-        odom = Odometry()
-        odom.header.stamp = current_time.to_msg()
-        odom.header.frame_id, odom.child_frame_id = "odom", "base_footprint"
-        odom.pose.pose.position.x, odom.pose.pose.position.y = float(self.x), float(self.y)
-        odom.pose.pose.orientation.z, odom.pose.pose.orientation.w = float(qz), float(qw)
+        raw_dx, raw_dy = (d2 - d1) / SQRT3, (d1 + d2 - (2.0 * d3)) / 3.0
         
-        # Odom velocities
-        dt = (current_time - self.last_time).nanoseconds / 1e9
-        self.last_time = current_time
-        if dt > 0:
-            odom.twist.twist.linear.x = float(dx_local / dt)
-            odom.twist.twist.linear.y = float(dy_local / dt)
-            odom.twist.twist.angular.z = float(dtheta / dt)
+        # Apply the inverse rotation matrix to odometry tracking
+        rad_inv = math.radians(-self.heading_offset_deg)
+        dx = raw_dx * math.cos(rad_inv) - raw_dy * math.sin(rad_inv)
+        dy = raw_dx * math.sin(rad_inv) + raw_dy * math.cos(rad_inv)
 
-        odom.pose.covariance[0] = odom.pose.covariance[7] = odom.pose.covariance[35] = 0.1
+        dth = (d1 + d2 + d3) / (3.0 * self.robot_radius)
+        self.x += dx * math.cos(self.theta) - dy * math.sin(self.theta)
+        self.y += dx * math.sin(self.theta) + dy * math.cos(self.theta)
+        self.theta += dth
+
+        now = self.get_clock().now().to_msg()
+        qz, qw = math.sin(self.theta/2.0), math.cos(self.theta/2.0)
+
+        t1 = TransformStamped()
+        t1.header.stamp, t1.header.frame_id, t1.child_frame_id = now, "odom", "base_footprint"
+        t1.transform.translation.x, t1.transform.translation.y = float(self.x), float(self.y)
+        t1.transform.rotation.z, t1.transform.rotation.w = qz, qw
+
+        t2 = TransformStamped()
+        t2.header.stamp, t2.header.frame_id, t2.child_frame_id = now, "base_footprint", "base_link"
+        t2.transform.rotation.w = 1.0
+
+        t3 = TransformStamped()
+        t3.header.stamp, t3.header.frame_id, t3.child_frame_id = now, "base_link", "camera_link"
+        t3.transform.translation.x, t3.transform.translation.z, t3.transform.rotation.w = 0.1, 0.2, 1.0
+
+        t4 = TransformStamped()
+        t4.header.stamp, t4.header.frame_id, t4.child_frame_id = now, "camera_link", "camera_depth_frame"
+        t4.transform.rotation.w = 1.0
+
+        self.tf_broadcaster.sendTransform([t1, t2, t3, t4])
+
+        odom = Odometry()
+        odom.header.stamp, odom.header.frame_id, odom.child_frame_id = now, "odom", "base_footprint"
+        odom.pose.pose.position.x, odom.pose.pose.position.y = float(self.x), float(self.y)
+        odom.pose.pose.orientation.z, odom.pose.pose.orientation.w = qz, qw
         self.odom_pub.publish(odom)
 
-        # TF Broadcast
-        t = TransformStamped()
-        t.header.stamp = current_time.to_msg()
-        t.header.frame_id, t.child_frame_id = "odom", "base_footprint"
-        t.transform.translation.x, t.transform.translation.y = float(self.x), float(self.y)
-        t.transform.rotation.z, t.transform.rotation.w = float(qz), float(qw)
-        self.tf_broadcaster.sendTransform(t)
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = MotorOdom()
+def main():
+    rclpy.init(); node = MotorOdom()
     try: rclpy.spin(node)
-    except KeyboardInterrupt: pass
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
+    except: rclpy.shutdown()
+if __name__ == '__main__': main()

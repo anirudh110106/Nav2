@@ -11,12 +11,10 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
-
         ('share/' + package_name, ['package.xml']),
-
-        # 👇 THIS installs your launch files
+        # Installs all .py files from the launch/ folder
         (os.path.join('share', package_name, 'launch'),
-            glob('launch/*.launch.py')),
+            glob('launch/*.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -31,9 +29,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            # 👇 your python nodes
+            # Node executables only — launch files do NOT go here
             'odom = my_robot.odom:main',
-            'laser_node = my_robot.laser:main',  # optional if you use it
+            'laser_node = my_robot.laser:main',
         ],
     },
 )
