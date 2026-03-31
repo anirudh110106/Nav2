@@ -11,10 +11,11 @@ amcl:
     odom_frame_id: "odom"
     set_initial_pose: true
     initial_pose:
-      x: 0.05
+      x: 0.5893974304199219
       y: 0.05
-      z: 0.05
+      z: 0.01
       yaw: 0.0
+
     resample_interval: 1
     robot_model_type: "nav2_amcl::OmniMotionModel"
     save_pose_rate: 0.5
@@ -49,12 +50,12 @@ bt_navigator:
 
 controller_server:
   ros__parameters:
-    controller_frequency: 20.0
+    controller_frequency: 10.0
     costmap_update_timeout: 0.30
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.001
     min_theta_velocity_threshold: 0.001
-    failure_tolerance: 0.3
+    failure_tolerance: 1.0
     progress_checker_plugins: ["progress_checker"]
     goal_checker_plugins: ["general_goal_checker"]
     controller_plugins: ["FollowPath"]
@@ -71,9 +72,9 @@ controller_server:
       yaw_goal_tolerance: 0.25
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
-      time_steps: 56
-      model_dt: 0.05
-      batch_size: 2000
+      time_steps: 40
+      model_dt: 0.1
+      batch_size: 400
       ax_max: 3.0
       ax_min: -3.0
       ay_max: 3.0
@@ -81,12 +82,12 @@ controller_server:
       az_max: 3.5
       vx_std: 0.2
       vy_std: 0.2
-      wz_std: 0.4
+      wz_std: 0.1
       vx_max: 0.5
-      vx_min: -0.35
+      vx_min: -0.5
       vy_max: 0.5
       vy_min: -0.5
-      wz_max: 1.9
+      wz_max: 0.5
       iteration_count: 1
       prune_distance: 1.7
       transform_tolerance: 0.1
@@ -114,14 +115,14 @@ controller_server:
         cost_weight: 5.0
         threshold_to_consider: 1.4
       GoalAngleCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
-        cost_weight: 3.0
+        cost_weight: 0.0
         threshold_to_consider: 0.5
       PreferForwardCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 0.0
         threshold_to_consider: 0.5
       CostCritic:
         enabled: true
@@ -134,9 +135,9 @@ controller_server:
         near_goal_distance: 1.0
         trajectory_point_step: 2
       PathAlignCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
-        cost_weight: 14.0
+        cost_weight: 0.0
         max_path_occupancy_ratio: 0.05
         trajectory_point_step: 4
         threshold_to_consider: 0.5
@@ -145,13 +146,13 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 10.0
         offset_from_furthest: 5
         threshold_to_consider: 1.4
       PathAngleCritic:
-        enabled: true
+        enabled: false
         cost_power: 1
-        cost_weight: 2.0
+        cost_weight: 0.0
         offset_from_furthest: 4
         threshold_to_consider: 0.5
         max_angle_to_furthest: 1.0
