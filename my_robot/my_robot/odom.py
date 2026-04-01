@@ -14,14 +14,11 @@ SQRT3 = 1.73205
 class MotorOdom(Node):
     def __init__(self):
         super().__init__('motor_odom')
-        self.wheel_radius, self.robot_radius = 0.05, 0.15
+        self.wheel_radius, self.robot_radius = 0.05, 0.10
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
         self.prev_1, self.prev_2, self.prev_3 = None, None, None
-        
-        # --- THE UNIVERSAL FIX ---
-        # Change this number to 0.0, 90.0, 180.0, or 270.0 
-        # Keep changing it until pressing "i" moves the robot perfectly forward!
-        self.heading_offset_deg = 120.0 
+         
+        self.heading_offset_deg = 120.0 #hmmmm
 
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
@@ -74,7 +71,7 @@ class MotorOdom(Node):
 
         now = self.get_clock().now().to_msg()
         qz, qw = math.sin(self.theta/2.0), math.cos(self.theta/2.0)
-
+        
         t1 = TransformStamped()
         t1.header.stamp, t1.header.frame_id, t1.child_frame_id = now, "odom", "base_footprint"
         t1.transform.translation.x, t1.transform.translation.y = float(self.x), float(self.y)
@@ -105,3 +102,6 @@ def main():
     try: rclpy.spin(node)
     except: rclpy.shutdown()
 if __name__ == '__main__': main()
+
+# odom → base_footprint → base_link → camera
+

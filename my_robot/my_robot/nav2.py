@@ -22,7 +22,7 @@ def generate_launch_description():
                         ('scan', '/scan')],
             parameters=[{
                 'scan_time': 0.033, 
-                'range_min': 0.45, 
+                'range_min': 0.25, 
                 'range_max': 5.0, 
                 'output_frame': 'camera_depth_frame',
                 'use_sim_time': False  # ADDED: Must match Nav2's use_sim_time to prevent TF timestamp drops

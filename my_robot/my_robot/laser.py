@@ -16,7 +16,7 @@ def generate_launch_description():
             package='tf2_ros',
             executable='static_transform_publisher',
             name='base_to_camera_tf',
-            arguments=['0.1', '0.0', '0.2', '0', '0', '0', 'base_link', 'camera_link']
+            arguments=['0.05', '0.0', '0.05', '0', '0', '0', 'base_link', 'camera_link']
         ),
 
         # 1.5 THE FIX: The missing "footprint" bridge!
@@ -41,7 +41,7 @@ def generate_launch_description():
             ],
             parameters=[{
                 'scan_time': 0.033,
-                'range_min': 0.45,
+                'range_min': 0.25,
                 'range_max': 8.0,
                 'scan_height': 5,
                 'output_frame': 'camera_depth_frame',
@@ -66,4 +66,6 @@ def generate_launch_description():
             output='screen'
         )
     ])
+
+#base_footprint → base_link → camera_link(no odom link)
 
