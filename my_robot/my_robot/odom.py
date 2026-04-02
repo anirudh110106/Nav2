@@ -14,7 +14,7 @@ SQRT3 = 1.73205
 class MotorOdom(Node):
     def __init__(self):
         super().__init__('motor_odom')
-        self.wheel_radius, self.robot_radius = 0.05, 0.10
+        self.wheel_radius, self.robot_radius = 0.05, 0.15
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
         self.prev_1, self.prev_2, self.prev_3 = None, None, None
          
