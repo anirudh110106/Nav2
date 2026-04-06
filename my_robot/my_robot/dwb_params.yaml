@@ -101,14 +101,14 @@ controller_server:
       short_circuit_trajectory_evaluation: True
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.02
-      PathAlign.scale: 32.0               # High weight to keep nose pointed along path
+      BaseObstacle.scale: 1.0
+      PathAlign.scale: 3.0               # High weight to keep nose pointed along path
       PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 24.0
+      GoalAlign.scale: 4.0
       GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0                # High weight to stick to the line
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 32.0
+      PathDist.scale: 3.0                # High weight to stick to the line
+      GoalDist.scale: 4.0
+      RotateToGoal.scale: 10.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
       Oscillation.scale: 1.0
