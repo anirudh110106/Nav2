@@ -1,3 +1,0 @@
-[console_scripts]
-laser_node = my_robot.laser:main
-odom = my_robot.odom:main

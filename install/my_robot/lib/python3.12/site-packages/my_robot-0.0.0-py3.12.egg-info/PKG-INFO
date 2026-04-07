@@ -1,8 +1,0 @@
-Metadata-Version: 2.1
-Name: my-robot
-Version: 0.0.0
-Summary: Robot system with odometry and SLAM
-Maintainer: rpd
-Maintainer-email: shaikyunis181@gmail.com
-License: Apache License 2.0
-Provides-Extra: test
