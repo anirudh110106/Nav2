@@ -9,8 +9,8 @@ def generate_launch_description():
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
     nav2_launch_file = os.path.join(nav2_bringup_dir, 'launch', 'bringup_launch.py')
 
-    map_file = '/home/rpd/Nav2/nav2/nav2/my_new_map.yaml'
-    params_file = '/home/rpd/Nav2/nav2/nav2/dwb_params.yaml'
+    map_file = '/home/rpd/Nav2/src/nav2/nav2/my_new_map.yaml'
+    params_file = '/home/rpd/Nav2/src/nav2/nav2/dwb_params.yaml'
 
     return LaunchDescription([
         Node(
