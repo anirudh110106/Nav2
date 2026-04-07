@@ -32,6 +32,7 @@ amcl:
 
 bt_navigator:
   ros__parameters:
+    default_nav_to_pose_bt_xml: "/home/rpd/Nav2/my_robot/my_robot/sequential_nav.xml"
     global_frame: map
     robot_base_frame: base_footprint
     odom_topic: /odom
@@ -101,7 +102,7 @@ controller_server:
       short_circuit_trajectory_evaluation: True
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.2
+      BaseObstacle.scale: 0.02
       PathAlign.scale: 32.0               # High weight to keep nose pointed along path
       PathAlign.forward_point_distance: 0.1
       GoalAlign.scale: 24.0

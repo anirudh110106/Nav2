@@ -1,0 +1,3 @@
+source;share/st3215/hook/pythonpath.ps1
+source;share/st3215/hook/pythonpath.dsv
+source;share/st3215/hook/pythonpath.sh

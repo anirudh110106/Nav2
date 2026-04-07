@@ -1,0 +1,36 @@
+running egg_info
+writing ../build/my_robot/my_robot.egg-info/PKG-INFO
+writing dependency_links to ../build/my_robot/my_robot.egg-info/dependency_links.txt
+writing entry points to ../build/my_robot/my_robot.egg-info/entry_points.txt
+writing requirements to ../build/my_robot/my_robot.egg-info/requires.txt
+writing top-level names to ../build/my_robot/my_robot.egg-info/top_level.txt
+reading manifest file '../build/my_robot/my_robot.egg-info/SOURCES.txt'
+writing manifest file '../build/my_robot/my_robot.egg-info/SOURCES.txt'
+running build
+running build_py
+copying my_robot/new_laser.py -> /home/rpd/Nav2/build/my_robot/build/lib/my_robot
+copying my_robot/laser.py -> /home/rpd/Nav2/build/my_robot/build/lib/my_robot
+copying my_robot/odom.py -> /home/rpd/Nav2/build/my_robot/build/lib/my_robot
+copying my_robot/nav.py -> /home/rpd/Nav2/build/my_robot/build/lib/my_robot
+copying my_robot/nav2_launch.py -> /home/rpd/Nav2/build/my_robot/build/lib/my_robot
+running install
+running install_lib
+copying /home/rpd/Nav2/build/my_robot/build/lib/my_robot/new_laser.py -> /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rpd/Nav2/build/my_robot/build/lib/my_robot/laser.py -> /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rpd/Nav2/build/my_robot/build/lib/my_robot/odom.py -> /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rpd/Nav2/build/my_robot/build/lib/my_robot/nav.py -> /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot
+copying /home/rpd/Nav2/build/my_robot/build/lib/my_robot/nav2_launch.py -> /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot
+byte-compiling /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot/new_laser.py to new_laser.cpython-312.pyc
+byte-compiling /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot/laser.py to laser.cpython-312.pyc
+byte-compiling /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot/odom.py to odom.cpython-312.pyc
+byte-compiling /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot/nav.py to nav.cpython-312.pyc
+byte-compiling /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot/nav2_launch.py to nav2_launch.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../build/my_robot/my_robot.egg-info to /home/rpd/Nav2/install/my_robot/lib/python3.12/site-packages/my_robot-0.0.0-py3.12.egg-info
+running install_scripts
+Installing laser_node script to /home/rpd/Nav2/install/my_robot/lib/my_robot
+Installing nav script to /home/rpd/Nav2/install/my_robot/lib/my_robot
+Installing odom script to /home/rpd/Nav2/install/my_robot/lib/my_robot
+writing list of installed files to '/home/rpd/Nav2/build/my_robot/install.log'
