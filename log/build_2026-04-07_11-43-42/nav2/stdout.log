@@ -15,18 +15,15 @@ creating /home/anirudh/Nav2/build/nav2/build/lib
 creating /home/anirudh/Nav2/build/nav2/build/lib/nav2
 copying nav2/odom.py -> /home/anirudh/Nav2/build/nav2/build/lib/nav2
 copying nav2/__init__.py -> /home/anirudh/Nav2/build/nav2/build/lib/nav2
-copying nav2/nav2.py -> /home/anirudh/Nav2/build/nav2/build/lib/nav2
 copying nav2/laser.py -> /home/anirudh/Nav2/build/nav2/build/lib/nav2
 running install
 running install_lib
 creating /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2
 copying /home/anirudh/Nav2/build/nav2/build/lib/nav2/odom.py -> /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2
 copying /home/anirudh/Nav2/build/nav2/build/lib/nav2/__init__.py -> /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2
-copying /home/anirudh/Nav2/build/nav2/build/lib/nav2/nav2.py -> /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2
 copying /home/anirudh/Nav2/build/nav2/build/lib/nav2/laser.py -> /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2
 byte-compiling /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2/odom.py to odom.cpython-312.pyc
 byte-compiling /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2/__init__.py to __init__.cpython-312.pyc
-byte-compiling /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2/nav2.py to nav2.cpython-312.pyc
 byte-compiling /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2/laser.py to laser.cpython-312.pyc
 running install_data
 creating /home/anirudh/Nav2/install/nav2/share/ament_index
@@ -35,6 +32,7 @@ creating /home/anirudh/Nav2/install/nav2/share/ament_index/resource_index/packag
 copying resource/nav2 -> /home/anirudh/Nav2/install/nav2/share/ament_index/resource_index/packages
 copying package.xml -> /home/anirudh/Nav2/install/nav2/share/nav2
 creating /home/anirudh/Nav2/install/nav2/share/nav2/launch
+copying nav2/launch/nav2.py -> /home/anirudh/Nav2/install/nav2/share/nav2/launch
 running install_egg_info
 Copying ../../build/nav2/nav2.egg-info to /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2-0.0.0-py3.12.egg-info
 running install_scripts

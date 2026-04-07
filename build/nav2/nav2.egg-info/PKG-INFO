@@ -2,7 +2,7 @@ Metadata-Version: 2.1
 Name: nav2
 Version: 0.0.0
 Summary: Robot system with odometry and SLAM
-Maintainer: rpd
+Maintainer: anirudh
 Maintainer-email: anirudh110106@gmail.com
 License: Apache License 2.0
 Provides-Extra: test

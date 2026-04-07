@@ -12,13 +12,14 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        # Installs all .py files from the launch/ folder
+        
+        # FIXED: correct path to launch files
         (os.path.join('share', package_name, 'launch'),
-            glob('launch/*.py')),
+            glob('nav2/launch/*.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='rpd',
+    maintainer='anirudh',
     maintainer_email='anirudh110106@gmail.com',
     description='Robot system with odometry and SLAM',
     license='Apache License 2.0',
@@ -29,7 +30,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            # Node executables only — launch files do NOT go here
             'odom = nav2.odom:main',
             'laser_node = nav2.laser:main',
         ],

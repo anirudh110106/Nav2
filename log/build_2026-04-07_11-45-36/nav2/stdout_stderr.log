@@ -11,6 +11,7 @@ running build_py
 running install
 running install_lib
 running install_data
+copying nav2/launch/nav2.py -> /home/anirudh/Nav2/install/nav2/share/nav2/launch
 running install_egg_info
 removing '/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2-0.0.0-py3.12.egg-info' (and everything under it)
 Copying ../../build/nav2/nav2.egg-info to /home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages/nav2-0.0.0-py3.12.egg-info

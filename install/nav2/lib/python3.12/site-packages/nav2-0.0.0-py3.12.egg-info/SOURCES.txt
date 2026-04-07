@@ -10,8 +10,8 @@ setup.py
 ../../build/nav2/nav2.egg-info/zip-safe
 nav2/__init__.py
 nav2/laser.py
-nav2/nav2.py
 nav2/odom.py
+nav2/launch/nav2.py
 resource/nav2
 test/test_copyright.py
 test/test_flake8.py
