@@ -13,6 +13,14 @@ def generate_launch_description():
     params_file = '/home/rpd/Nav2/src/nav2/nav2/dwb_params.yaml'
 
     return LaunchDescription([
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(realsense_launch_file),
+            launch_arguments={
+                'pointcloud.enable': 'true'
+            }.items()
+        ),
+        
         Node(
             package='depthimage_to_laserscan',
             executable='depthimage_to_laserscan_node',
