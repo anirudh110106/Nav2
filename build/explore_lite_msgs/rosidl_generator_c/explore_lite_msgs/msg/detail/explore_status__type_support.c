@@ -4,10 +4,10 @@
 
 #include <string.h>
 
+#include "rosidl_typesupport_interface/macros.h"
+#include "explore_lite_msgs/msg/detail/explore_status__type_support.h"
 #include "explore_lite_msgs/msg/detail/explore_status__struct.h"
 #include "explore_lite_msgs/msg/detail/explore_status__functions.h"
-#include "explore_lite_msgs/msg/detail/explore_status__type_support.h"
-#include "rosidl_typesupport_interface/macros.h"
 
 #ifdef __cplusplus
 extern "C"

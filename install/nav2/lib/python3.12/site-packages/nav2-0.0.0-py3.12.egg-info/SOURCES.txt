@@ -9,6 +9,7 @@ setup.py
 ../../build/nav2/nav2.egg-info/top_level.txt
 ../../build/nav2/nav2.egg-info/zip-safe
 nav2/__init__.py
+nav2/atob.py
 nav2/laser.py
 nav2/odom.py
 nav2/launch/nav2.py
