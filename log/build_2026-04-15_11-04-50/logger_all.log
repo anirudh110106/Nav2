@@ -1,0 +1,413 @@
+[0.074s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.074s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f7df58a27e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f7df59c2a20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f7df59c2a20>>, mixin_verb=('build',))
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.104s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.104s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/anirudh/Nav2'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'ignore'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'ignore_ament_install'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['colcon_pkg']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'colcon_pkg'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['colcon_meta']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'colcon_meta'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['ros']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'ros'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['cmake', 'python']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'cmake'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'python'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extensions ['python_setup_py']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2) by extension 'python_setup_py'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extensions ['ignore', 'ignore_ament_install']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extension 'ignore'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extension 'ignore_ament_install'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extensions ['colcon_pkg']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extension 'colcon_pkg'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extensions ['colcon_meta']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extension 'colcon_meta'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extensions ['ros']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore) by extension 'ros'
+[0.130s] DEBUG:colcon.colcon_core.package_identification:Package 'src/m-explore-ros2/explore' with type 'ros.ament_cmake' and name 'explore_lite'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extension 'ignore'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extension 'ignore_ament_install'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extensions ['colcon_pkg']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extension 'colcon_pkg'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extensions ['colcon_meta']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extension 'colcon_meta'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extensions ['ros']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/explore_lite_msgs) by extension 'ros'
+[0.131s] DEBUG:colcon.colcon_core.package_identification:Package 'src/m-explore-ros2/explore_lite_msgs' with type 'ros.ament_cmake' and name 'explore_lite_msgs'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extensions ['ignore', 'ignore_ament_install']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extension 'ignore'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extension 'ignore_ament_install'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extensions ['colcon_pkg']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extension 'colcon_pkg'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extensions ['colcon_meta']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extension 'colcon_meta'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extensions ['ros']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/m-explore-ros2/map_merge) by extension 'ros'
+[0.132s] DEBUG:colcon.colcon_core.package_identification:Package 'src/m-explore-ros2/map_merge' with type 'ros.ament_cmake' and name 'multirobot_map_merge'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extensions ['ignore', 'ignore_ament_install']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extension 'ignore'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extension 'ignore_ament_install'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extensions ['colcon_pkg']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extension 'colcon_pkg'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extensions ['colcon_meta']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extension 'colcon_meta'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extensions ['ros']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2) by extension 'ros'
+[0.133s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nav2' with type 'ros.ament_python' and name 'nav2'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extension 'ignore'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extension 'ignore_ament_install'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extensions ['colcon_pkg']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extension 'colcon_pkg'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extensions ['colcon_meta']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extension 'colcon_meta'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extensions ['ros']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/rplidar_ros) by extension 'ros'
+[0.133s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rplidar_ros' with type 'ros.ament_cmake' and name 'rplidar_ros'
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.148s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.150s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/anirudh/Nav2/install
+[0.151s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 498 installed packages in /opt/ros/jazzy
+[0.153s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.203s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_target' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'explore_lite_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.204s] DEBUG:colcon.colcon_core.verb:Building package 'explore_lite_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/anirudh/Nav2/build/explore_lite_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/anirudh/Nav2/install/explore_lite_msgs', 'merge_install': False, 'path': '/home/anirudh/Nav2/src/m-explore-ros2/explore_lite_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_target' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_clean_first' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'cmake_force_configure' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'ament_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'multirobot_map_merge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.204s] DEBUG:colcon.colcon_core.verb:Building package 'multirobot_map_merge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/anirudh/Nav2/build/multirobot_map_merge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/anirudh/Nav2/install/multirobot_map_merge', 'merge_install': False, 'path': '/home/anirudh/Nav2/src/m-explore-ros2/map_merge', 'symlink_install': False, 'test_result_base': None}
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_target' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_clean_first' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'cmake_force_configure' from command line to 'False'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'ament_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.204s] Level 5:colcon.colcon_core.verb:set package 'nav2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.204s] DEBUG:colcon.colcon_core.verb:Building package 'nav2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/anirudh/Nav2/build/nav2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/anirudh/Nav2/install/nav2', 'merge_install': False, 'path': '/home/anirudh/Nav2/src/nav2', 'symlink_install': False, 'test_result_base': None}
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_target' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_clean_first' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_force_configure' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'ament_cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.205s] DEBUG:colcon.colcon_core.verb:Building package 'rplidar_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/anirudh/Nav2/build/rplidar_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/anirudh/Nav2/install/rplidar_ros', 'merge_install': False, 'path': '/home/anirudh/Nav2/src/rplidar_ros', 'symlink_install': False, 'test_result_base': None}
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_target' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_clean_cache' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_clean_first' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'cmake_force_configure' from command line to 'False'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'ament_cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'catkin_cmake_args' from command line to 'None'
+[0.205s] Level 5:colcon.colcon_core.verb:set package 'explore_lite' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.205s] DEBUG:colcon.colcon_core.verb:Building package 'explore_lite' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/anirudh/Nav2/build/explore_lite', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/anirudh/Nav2/install/explore_lite', 'merge_install': False, 'path': '/home/anirudh/Nav2/src/m-explore-ros2/explore', 'symlink_install': False, 'test_result_base': None}
+[0.205s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.206s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.206s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/anirudh/Nav2/src/m-explore-ros2/explore_lite_msgs' with build type 'ament_cmake'
+[0.206s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/anirudh/Nav2/src/m-explore-ros2/explore_lite_msgs'
+[0.208s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.208s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.208s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.211s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/anirudh/Nav2/src/m-explore-ros2/map_merge' with build type 'ament_cmake'
+[0.212s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/anirudh/Nav2/src/m-explore-ros2/map_merge'
+[0.212s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.212s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.214s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/anirudh/Nav2/src/nav2' with build type 'ament_python'
+[0.214s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2', 'ament_prefix_path')
+[0.215s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/nav2/share/nav2/hook/ament_prefix_path.ps1'
+[0.215s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/nav2/share/nav2/hook/ament_prefix_path.dsv'
+[0.216s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/nav2/share/nav2/hook/ament_prefix_path.sh'
+[0.217s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.217s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.220s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/anirudh/Nav2/src/rplidar_ros' with build type 'ament_cmake'
+[0.220s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/anirudh/Nav2/src/rplidar_ros'
+[0.220s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.220s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.227s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/explore_lite_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/explore_lite_msgs -- -j20 -l20
+[0.229s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/multirobot_map_merge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/multirobot_map_merge -- -j20 -l20
+[0.407s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/anirudh/Nav2/src/nav2'
+[0.408s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.408s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.415s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/multirobot_map_merge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/multirobot_map_merge -- -j20 -l20
+[0.424s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/multirobot_map_merge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/multirobot_map_merge
+[0.426s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/rplidar_ros -- -j20 -l20
+[0.437s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(multirobot_map_merge)
+[0.437s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/multirobot_map_merge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/multirobot_map_merge
+[0.439s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge' for CMake module files
+[0.440s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge' for CMake config files
+[0.440s] Level 1:colcon.colcon_core.shell:create_environment_hook('multirobot_map_merge', 'cmake_prefix_path')
+[0.440s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.ps1'
+[0.441s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.dsv'
+[0.441s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.sh'
+[0.442s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib'
+[0.442s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/bin'
+[0.442s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib/pkgconfig/multirobot_map_merge.pc'
+[0.442s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib/python3.12/site-packages'
+[0.443s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/bin'
+[0.443s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.ps1'
+[0.443s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.dsv'
+[0.444s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.sh'
+[0.444s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.bash'
+[0.445s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.zsh'
+[0.446s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/multirobot_map_merge/share/colcon-core/packages/multirobot_map_merge)
+[0.446s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(multirobot_map_merge)
+[0.446s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge' for CMake module files
+[0.447s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge' for CMake config files
+[0.447s] Level 1:colcon.colcon_core.shell:create_environment_hook('multirobot_map_merge', 'cmake_prefix_path')
+[0.447s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.ps1'
+[0.448s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.dsv'
+[0.448s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/hook/cmake_prefix_path.sh'
+[0.448s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib'
+[0.449s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/bin'
+[0.449s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib/pkgconfig/multirobot_map_merge.pc'
+[0.449s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/lib/python3.12/site-packages'
+[0.449s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/multirobot_map_merge/bin'
+[0.449s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.ps1'
+[0.450s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.dsv'
+[0.450s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.sh'
+[0.451s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.bash'
+[0.451s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/multirobot_map_merge/share/multirobot_map_merge/package.zsh'
+[0.451s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/multirobot_map_merge/share/colcon-core/packages/multirobot_map_merge)
+[0.490s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/rplidar_ros -- -j20 -l20
+[0.492s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/rplidar_ros
+[0.502s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rplidar_ros)
+[0.502s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/rplidar_ros
+[0.502s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros' for CMake module files
+[0.503s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros' for CMake config files
+[0.503s] Level 1:colcon.colcon_core.shell:create_environment_hook('rplidar_ros', 'cmake_prefix_path')
+[0.503s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.ps1'
+[0.504s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.dsv'
+[0.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.sh'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/bin'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib/pkgconfig/rplidar_ros.pc'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib/python3.12/site-packages'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/bin'
+[0.505s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.ps1'
+[0.506s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.dsv'
+[0.506s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.sh'
+[0.506s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.bash'
+[0.507s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.zsh'
+[0.507s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/rplidar_ros/share/colcon-core/packages/rplidar_ros)
+[0.507s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rplidar_ros)
+[0.507s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros' for CMake module files
+[0.507s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros' for CMake config files
+[0.508s] Level 1:colcon.colcon_core.shell:create_environment_hook('rplidar_ros', 'cmake_prefix_path')
+[0.508s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.ps1'
+[0.508s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.dsv'
+[0.508s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.sh'
+[0.508s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib'
+[0.508s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/bin'
+[0.508s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib/pkgconfig/rplidar_ros.pc'
+[0.509s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/lib/python3.12/site-packages'
+[0.509s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/rplidar_ros/bin'
+[0.509s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.ps1'
+[0.509s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.dsv'
+[0.509s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.sh'
+[0.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.bash'
+[0.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/rplidar_ros/share/rplidar_ros/package.zsh'
+[0.510s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/rplidar_ros/share/colcon-core/packages/rplidar_ros)
+[0.532s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/explore_lite_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/anirudh/Nav2/build/explore_lite_msgs -- -j20 -l20
+[0.533s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/explore_lite_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/explore_lite_msgs
+[0.574s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(explore_lite_msgs)
+[0.575s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs' for CMake module files
+[0.575s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/explore_lite_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/anirudh/Nav2/build/explore_lite_msgs
+[0.576s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs' for CMake config files
+[0.576s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'cmake_prefix_path')
+[0.577s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.ps1'
+[0.577s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.dsv'
+[0.577s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.sh'
+[0.578s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib'
+[0.578s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'ld_library_path_lib')
+[0.578s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.ps1'
+[0.578s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.dsv'
+[0.578s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.sh'
+[0.579s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/bin'
+[0.579s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib/pkgconfig/explore_lite_msgs.pc'
+[0.579s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages'
+[0.579s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'pythonpath')
+[0.579s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.ps1'
+[0.579s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.dsv'
+[0.579s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.sh'
+[0.580s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/bin'
+[0.580s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.ps1'
+[0.580s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.dsv'
+[0.580s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.sh'
+[0.581s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.bash'
+[0.581s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.zsh'
+[0.581s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/explore_lite_msgs/share/colcon-core/packages/explore_lite_msgs)
+[0.581s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(explore_lite_msgs)
+[0.581s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs' for CMake module files
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs' for CMake config files
+[0.582s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'cmake_prefix_path')
+[0.582s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.ps1'
+[0.582s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.dsv'
+[0.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/cmake_prefix_path.sh'
+[0.583s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib'
+[0.583s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'ld_library_path_lib')
+[0.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.ps1'
+[0.583s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.dsv'
+[0.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/ld_library_path_lib.sh'
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/bin'
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib/pkgconfig/explore_lite_msgs.pc'
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages'
+[0.584s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite_msgs', 'pythonpath')
+[0.584s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.ps1'
+[0.584s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.dsv'
+[0.584s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/hook/pythonpath.sh'
+[0.585s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite_msgs/bin'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.ps1'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.dsv'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.sh'
+[0.586s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.bash'
+[0.586s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite_msgs/share/explore_lite_msgs/package.zsh'
+[0.586s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/explore_lite_msgs/share/colcon-core/packages/explore_lite_msgs)
+[0.586s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/anirudh/Nav2/src/m-explore-ros2/explore' with build type 'ament_cmake'
+[0.586s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/anirudh/Nav2/src/m-explore-ros2/explore'
+[0.586s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.586s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.595s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/explore_lite': CMAKE_PREFIX_PATH=/home/anirudh/Nav2/install/explore_lite_msgs:/home/anirudh/Nav2/install/rplidar_ros:/home/anirudh/Nav2/install/multirobot_map_merge:/home/anirudh/Nav2/install/explore_lite:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib:/home/anirudh/Nav2/install/multirobot_map_merge/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTHONPATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/anirudh/Nav2/build/explore_lite -- -j20 -l20
+[0.670s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/explore_lite' returned '0': CMAKE_PREFIX_PATH=/home/anirudh/Nav2/install/explore_lite_msgs:/home/anirudh/Nav2/install/rplidar_ros:/home/anirudh/Nav2/install/multirobot_map_merge:/home/anirudh/Nav2/install/explore_lite:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib:/home/anirudh/Nav2/install/multirobot_map_merge/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTHONPATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/anirudh/Nav2/build/explore_lite -- -j20 -l20
+[0.671s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/build/explore_lite': CMAKE_PREFIX_PATH=/home/anirudh/Nav2/install/explore_lite_msgs:/home/anirudh/Nav2/install/rplidar_ros:/home/anirudh/Nav2/install/multirobot_map_merge:/home/anirudh/Nav2/install/explore_lite:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib:/home/anirudh/Nav2/install/multirobot_map_merge/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTHONPATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/anirudh/Nav2/build/explore_lite
+[0.678s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(explore_lite)
+[0.679s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite' for CMake module files
+[0.679s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/build/explore_lite' returned '0': CMAKE_PREFIX_PATH=/home/anirudh/Nav2/install/explore_lite_msgs:/home/anirudh/Nav2/install/rplidar_ros:/home/anirudh/Nav2/install/multirobot_map_merge:/home/anirudh/Nav2/install/explore_lite:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/anirudh/Nav2/install/nav2:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib:/home/anirudh/Nav2/install/multirobot_map_merge/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTHONPATH=/home/anirudh/Nav2/install/explore_lite_msgs/lib/python3.12/site-packages:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/anirudh/Nav2/build/explore_lite
+[0.679s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite' for CMake config files
+[0.679s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite', 'cmake_prefix_path')
+[0.679s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.ps1'
+[0.680s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.dsv'
+[0.680s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.sh'
+[0.680s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib'
+[0.680s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/bin'
+[0.680s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib/pkgconfig/explore_lite.pc'
+[0.680s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib/python3.12/site-packages'
+[0.681s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/bin'
+[0.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.ps1'
+[0.681s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.dsv'
+[0.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.sh'
+[0.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.bash'
+[0.682s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.zsh'
+[0.682s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/explore_lite/share/colcon-core/packages/explore_lite)
+[0.682s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(explore_lite)
+[0.682s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite' for CMake module files
+[0.682s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite' for CMake config files
+[0.682s] Level 1:colcon.colcon_core.shell:create_environment_hook('explore_lite', 'cmake_prefix_path')
+[0.683s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.ps1'
+[0.683s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.dsv'
+[0.683s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/hook/cmake_prefix_path.sh'
+[0.683s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib'
+[0.683s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/bin'
+[0.683s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib/pkgconfig/explore_lite.pc'
+[0.684s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/lib/python3.12/site-packages'
+[0.684s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/explore_lite/bin'
+[0.684s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.ps1'
+[0.684s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.dsv'
+[0.684s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.sh'
+[0.685s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.bash'
+[0.685s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/explore_lite/share/explore_lite/package.zsh'
+[0.685s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/explore_lite/share/colcon-core/packages/explore_lite)
+[0.884s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/anirudh/Nav2/src/nav2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/anirudh/Nav2/build/nav2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nav2 build --build-base /home/anirudh/Nav2/build/nav2/build install --record /home/anirudh/Nav2/build/nav2/install.log --single-version-externally-managed install_data
+[1.305s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2' for CMake module files
+[1.306s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/anirudh/Nav2/src/nav2' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/anirudh/Nav2/build/nav2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nav2 build --build-base /home/anirudh/Nav2/build/nav2/build install --record /home/anirudh/Nav2/build/nav2/install.log --single-version-externally-managed install_data
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2' for CMake config files
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2/lib'
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2/bin'
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2/lib/pkgconfig/nav2.pc'
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2/lib/python3.12/site-packages'
+[1.307s] Level 1:colcon.colcon_core.shell:create_environment_hook('nav2', 'pythonpath')
+[1.307s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/nav2/share/nav2/hook/pythonpath.ps1'
+[1.307s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/anirudh/Nav2/install/nav2/share/nav2/hook/pythonpath.dsv'
+[1.307s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/anirudh/Nav2/install/nav2/share/nav2/hook/pythonpath.sh'
+[1.308s] Level 1:colcon.colcon_core.environment:checking '/home/anirudh/Nav2/install/nav2/bin'
+[1.308s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nav2)
+[1.308s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/nav2/share/nav2/package.ps1'
+[1.309s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/anirudh/Nav2/install/nav2/share/nav2/package.dsv'
+[1.309s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/nav2/share/nav2/package.sh'
+[1.309s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/nav2/share/nav2/package.bash'
+[1.309s] INFO:colcon.colcon_core.shell:Creating package script '/home/anirudh/Nav2/install/nav2/share/nav2/package.zsh'
+[1.309s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/anirudh/Nav2/install/nav2/share/colcon-core/packages/nav2)
+[1.310s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.310s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.310s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.310s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.314s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.314s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.314s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.325s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.325s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/anirudh/Nav2/install/local_setup.ps1'
+[1.326s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/anirudh/Nav2/install/_local_setup_util_ps1.py'
+[1.327s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/anirudh/Nav2/install/setup.ps1'
+[1.327s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/anirudh/Nav2/install/local_setup.sh'
+[1.328s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/anirudh/Nav2/install/_local_setup_util_sh.py'
+[1.328s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/anirudh/Nav2/install/setup.sh'
+[1.329s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/anirudh/Nav2/install/local_setup.bash'
+[1.329s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/anirudh/Nav2/install/setup.bash'
+[1.330s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/anirudh/Nav2/install/local_setup.zsh'
+[1.331s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/anirudh/Nav2/install/setup.zsh'
