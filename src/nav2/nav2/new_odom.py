@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
@@ -8,10 +9,13 @@ import math
 from st3215 import ST3215
 
 servo = ST3215('/dev/ttyACM0')
+
 TICKS_PER_REV = 4096
 SQRT3 = 1.73205
 
+
 class MotorOdom(Node):
+
     def __init__(self):
         super().__init__('motor_odom')
 
@@ -36,12 +40,14 @@ class MotorOdom(Node):
 
         self.timer = self.create_timer(0.033, self.update)
 
-        self.get_logger().info('motor_odom started — if you see this twice, you have a duplicate node!')
+        self.get_logger().info("motor_odom FIXED (sync-safe version)")
 
+    # ---------------- DRIVE ----------------
     def cmd_callback(self, msg):
         cmd_x, cmd_y, w = msg.linear.x, msg.linear.y, msg.angular.z
 
         rad = math.radians(self.drive_heading_offset)
+
         vx = cmd_x * math.cos(rad) - cmd_y * math.sin(rad)
         vy = cmd_x * math.sin(rad) + cmd_y * math.cos(rad)
 
@@ -52,49 +58,56 @@ class MotorOdom(Node):
         try:
             for i, v in enumerate([v1, v2, v3], 1):
                 servo.Rotate(i, int(v * 3000))
-        except Exception as e:
-            self.get_logger().warn(f'Servo write failed: {e}')
+        except:
+            pass
 
+    # ---------------- WRAP SAFE CHECK ----------------
+    def is_wrap_inconsistent(self, p1, p2, p3):
+        vals = [p1, p2, p3]
+
+        high = [v for v in vals if v > 3500]
+        low  = [v for v in vals if v < 500]
+
+        return len(high) > 0 and len(low) > 0
+
+    # ---------------- UNWRAP ----------------
     def unwrap(self, curr, prev, acc):
         diff = curr - prev
 
-        # Handle wrap   
         if diff > 2048:
             diff -= 4096
         elif diff < -2048:
             diff += 4096
 
-        # Reject unrealistic jumps, but UPDATE state
-        MAX_TICKS_PER_STEP = 200   # tune (very important)
-
-        if abs(diff) > MAX_TICKS_PER_STEP:
-            # We ignore the distance (return the old acc)
-            # BUT we update prev to curr so we don't get permanently stuck!
-            return acc, curr
-
         return acc + diff, curr
 
+    # ---------------- UPDATE ----------------
     def update(self):
+
         try:
             p1 = servo.ReadPosition(1)
             p2 = servo.ReadPosition(2)
             p3 = servo.ReadPosition(3)
-        except Exception as e:
-            self.get_logger().warn(f'Serial read failed: {e}')
+        except:
             return
 
         if None in (p1, p2, p3):
-            self.get_logger().warn('Got None from ReadPosition — skipping frame')
+            return
+
+        # 🔥 MAIN FIX: skip inconsistent wrap frames
+        if self.is_wrap_inconsistent(p1, p2, p3):
             return
 
         if self.prev_1 is None:
             self.prev_1, self.prev_2, self.prev_3 = p1, p2, p3
             return
 
+        # unwrap
         self.acc1, self.prev_1 = self.unwrap(p1, self.prev_1, self.acc1)
         self.acc2, self.prev_2 = self.unwrap(p2, self.prev_2, self.acc2)
         self.acc3, self.prev_3 = self.unwrap(p3, self.prev_3, self.acc3)
 
+        # delta
         d1 = self.acc1 - self.prev_acc1
         d2 = self.acc2 - self.prev_acc2
         d3 = self.acc3 - self.prev_acc3
@@ -103,37 +116,46 @@ class MotorOdom(Node):
         self.prev_acc2 = self.acc2
         self.prev_acc3 = self.acc3
 
+        # convert
         scale = (2.0 * math.pi * self.wheel_radius / TICKS_PER_REV)
         d1 *= scale
         d2 *= scale
         d3 *= scale
 
-        if abs(d1) > 0.05 or abs(d2) > 0.05 or abs(d3) > 0.05:
-            self.get_logger().warn(f'Rejected impossible motion: d1={d1:.4f} d2={d2:.4f} d3={d3:.4f}')
+        # loose sanity
+        if abs(d1) > 0.1 or abs(d2) > 0.1 or abs(d3) > 0.1:
             return
 
+        # kinematics
         raw_dx = (d2 - d1) / SQRT3
         raw_dy = (d1 + d2 - 2.0*d3) / 3.0
 
         rad = math.radians(-self.odom_heading_offset)
+
         dx = raw_dx * math.cos(rad) - raw_dy * math.sin(rad)
         dy = raw_dx * math.sin(rad) + raw_dy * math.cos(rad)
 
-        alpha = 0.6
+        # smoothing
+        alpha = 0.7
         dx = alpha * dx + (1 - alpha) * self.prev_dx
         dy = alpha * dy + (1 - alpha) * self.prev_dy
+
         self.prev_dx = dx
         self.prev_dy = dy
 
+        # keep your yaw (optional)
         raw_dth = (d1 + d2 + d3) / (3.0 * self.robot_radius)
         dth = 0.0 if abs(raw_dth) < 0.02 else 0.6 * raw_dth
+
         avg_theta = self.theta + dth / 2.0
 
         self.x += dx * math.cos(avg_theta) - dy * math.sin(avg_theta)
         self.y += dx * math.sin(avg_theta) + dy * math.cos(avg_theta)
         self.theta += dth
 
+        # TF
         now = self.get_clock().now().to_msg()
+
         qz = math.sin(self.theta / 2.0)
         qw = math.cos(self.theta / 2.0)
 
@@ -154,10 +176,12 @@ class MotorOdom(Node):
 
         self.tf_broadcaster.sendTransform([t1, t2])
 
+        # odom
         odom = Odometry()
         odom.header.stamp = now
         odom.header.frame_id = 'odom'
         odom.child_frame_id = 'base_footprint'
+
         odom.pose.pose.position.x = float(self.x)
         odom.pose.pose.position.y = float(self.y)
         odom.pose.pose.orientation.z = qz
@@ -171,7 +195,7 @@ def main():
     node = MotorOdom()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except:
         pass
     finally:
         node.destroy_node()
