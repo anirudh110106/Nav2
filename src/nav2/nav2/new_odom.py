@@ -25,9 +25,13 @@ class MotorOdom(Node):
         self.acc1 = self.acc2 = self.acc3 = 0
         self.prev_acc1 = self.prev_acc2 = self.prev_acc3 = 0
 
-        # IMPORTANT
-        self.drive_heading_offset = 120.0   # for movement
-        self.odom_heading_offset = 117.0    # tune this later
+        # Motion smoothing
+        self.prev_dx = 0.0
+        self.prev_dy = 0.0
+
+        # Offsets
+        self.drive_heading_offset = 120.0
+        self.odom_heading_offset = 117.0   # tune this slightly
 
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
@@ -63,8 +67,8 @@ class MotorOdom(Node):
         elif diff < -2048:
             diff += 4096
 
-        # Reject garbage jumps
-        if abs(diff) > 1000:
+        # STRICT filter (major fix)
+        if abs(diff) > 300:
             return acc, prev
 
         return acc + diff, curr
@@ -91,9 +95,9 @@ class MotorOdom(Node):
         self.acc3, self.prev_3 = self.unwrap(p3, self.prev_3, self.acc3)
 
         # delta ticks
-        d1 = (self.acc1 - self.prev_acc1)
-        d2 = (self.acc2 - self.prev_acc2)
-        d3 = (self.acc3 - self.prev_acc3)
+        d1 = self.acc1 - self.prev_acc1
+        d2 = self.acc2 - self.prev_acc2
+        d3 = self.acc3 - self.prev_acc3
 
         self.prev_acc1 = self.acc1
         self.prev_acc2 = self.acc2
@@ -105,21 +109,32 @@ class MotorOdom(Node):
         d2 *= scale
         d3 *= scale
 
+        # REJECT IMPOSSIBLE MOTION (critical fix)
+        if abs(d1) > 0.05 or abs(d2) > 0.05 or abs(d3) > 0.05:
+            return
+
         # kinematics
         raw_dx = (d2 - d1) / SQRT3
         raw_dy = (d1 + d2 - 2.0*d3) / 3.0
 
-        # rotate into robot frame
+        # rotate frame
         rad = math.radians(-self.odom_heading_offset)
         dx = raw_dx * math.cos(rad) - raw_dy * math.sin(rad)
         dy = raw_dx * math.sin(rad) + raw_dy * math.cos(rad)
 
-        # dth = (d1 + d2 + d3) / (3.0 * self.robot_radius)
-        ANGULAR_SCALE = 0.6   # tune this (0.4 → 1.0)
+        # SMOOTHING (removes spikes)
+        alpha = 0.6
+        dx = alpha * dx + (1 - alpha) * self.prev_dx
+        dy = alpha * dy + (1 - alpha) * self.prev_dy
+        self.prev_dx = dx
+        self.prev_dy = dy
+
+        # angular motion
+        ANGULAR_SCALE = 0.6
         dth = ANGULAR_SCALE * (d1 + d2 + d3) / (3.0 * self.robot_radius)
 
-        # midpoint integration (important)
-        avg_theta = self.theta + dth/2.0
+        # midpoint integration
+        avg_theta = self.theta + dth / 2.0
 
         self.x += dx * math.cos(avg_theta) - dy * math.sin(avg_theta)
         self.y += dx * math.sin(avg_theta) + dy * math.cos(avg_theta)
@@ -127,8 +142,8 @@ class MotorOdom(Node):
 
         # ---------------- TF ----------------
         now = self.get_clock().now().to_msg()
-        qz = math.sin(self.theta/2.0)
-        qw = math.cos(self.theta/2.0)
+        qz = math.sin(self.theta / 2.0)
+        qw = math.cos(self.theta / 2.0)
 
         t1 = TransformStamped()
         t1.header.stamp = now
