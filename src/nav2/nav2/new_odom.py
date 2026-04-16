@@ -58,14 +58,18 @@ class MotorOdom(Node):
     def unwrap(self, curr, prev, acc):
         diff = curr - prev
 
+        # Handle wrap
         if diff > 2048:
             diff -= 4096
         elif diff < -2048:
             diff += 4096
 
-        # Always advance prev to curr — avoids frozen-prev stuck state near wrap boundary
-        if abs(diff) > 300:
-            return acc, curr
+        # 🚨 CRITICAL: reject unrealistic jumps
+        MAX_TICKS_PER_STEP = 200   # tune (very important)
+
+        if abs(diff) > MAX_TICKS_PER_STEP:
+            # ignore this reading completely
+            return acc, prev
 
         return acc + diff, curr
 
