@@ -66,22 +66,20 @@ class MotorOdom(Node):
             
             d = c - p
             
-            # 2. Standard wraparound math (which you already had correct)
+            # 2. Standard wraparound math
             if d > 2048: 
                 d -= 4096
             elif d < -2048: 
                 d += 4096
                 
             # 3. The Glitch Filter
-            # If the wheel supposedly moved more than 200 ticks in 33ms (impossible), 
-            # it's a boundary glitch. Reject it and assume 0 movement for this frame.
             if abs(d) > 200:
                 self.get_logger().warn(f"Boundary glitch on Wheel {wheel_id}! Read {c} from {p}. Ignored.")
                 return 0.0 
 
             return d * (2.0 * math.pi * self.wheel_radius / 4096.0)
 
-        # Update your calls to pass the wheel ID
+        # Now these 3-argument calls will work perfectly:
         d1 = delta(p1, self.prev_1, 1)
         d2 = delta(p2, self.prev_2, 2)
         d3 = delta(p3, self.prev_3, 3)
