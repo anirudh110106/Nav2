@@ -36,19 +36,24 @@ class MotorOdom(Node):
 
         self.timer = self.create_timer(0.033, self.update)
 
+        self.get_logger().info('motor_odom started — if you see this twice, you have a duplicate node!')
+
     def cmd_callback(self, msg):
         cmd_x, cmd_y, w = msg.linear.x, msg.linear.y, msg.angular.z
+
         rad = math.radians(self.drive_heading_offset)
         vx = cmd_x * math.cos(rad) - cmd_y * math.sin(rad)
         vy = cmd_x * math.sin(rad) + cmd_y * math.cos(rad)
+
         v1 = -(SQRT3/2.0)*vx + 0.5*vy + self.robot_radius*w
-        v2 = (SQRT3/2.0)*vx + 0.5*vy + self.robot_radius*w
-        v3 = -1.0*vy + self.robot_radius*w
+        v2 =  (SQRT3/2.0)*vx + 0.5*vy + self.robot_radius*w
+        v3 =  -1.0*vy + self.robot_radius*w
+
         try:
             for i, v in enumerate([v1, v2, v3], 1):
                 servo.Rotate(i, int(v * 3000))
-        except:
-            pass
+        except Exception as e:
+            self.get_logger().warn(f'Servo write failed: {e}')
 
     def unwrap(self, curr, prev, acc):
         diff = curr - prev
@@ -60,7 +65,7 @@ class MotorOdom(Node):
 
         # Always advance prev to curr — avoids frozen-prev stuck state near wrap boundary
         if abs(diff) > 300:
-            return acc, curr   # <-- THE FIX: was (acc, prev)
+            return acc, curr
 
         return acc + diff, curr
 
@@ -69,10 +74,12 @@ class MotorOdom(Node):
             p1 = servo.ReadPosition(1)
             p2 = servo.ReadPosition(2)
             p3 = servo.ReadPosition(3)
-        except:
+        except Exception as e:
+            self.get_logger().warn(f'Serial read failed: {e}')
             return
 
         if None in (p1, p2, p3):
+            self.get_logger().warn('Got None from ReadPosition — skipping frame')
             return
 
         if self.prev_1 is None:
@@ -97,6 +104,7 @@ class MotorOdom(Node):
         d3 *= scale
 
         if abs(d1) > 0.05 or abs(d2) > 0.05 or abs(d3) > 0.05:
+            self.get_logger().warn(f'Rejected impossible motion: d1={d1:.4f} d2={d2:.4f} d3={d3:.4f}')
             return
 
         raw_dx = (d2 - d1) / SQRT3
@@ -126,8 +134,8 @@ class MotorOdom(Node):
 
         t1 = TransformStamped()
         t1.header.stamp = now
-        t1.header.frame_id = "odom"
-        t1.child_frame_id = "base_footprint"
+        t1.header.frame_id = 'odom'
+        t1.child_frame_id = 'base_footprint'
         t1.transform.translation.x = float(self.x)
         t1.transform.translation.y = float(self.y)
         t1.transform.rotation.z = qz
@@ -135,16 +143,16 @@ class MotorOdom(Node):
 
         t2 = TransformStamped()
         t2.header.stamp = now
-        t2.header.frame_id = "base_footprint"
-        t2.child_frame_id = "base_link"
+        t2.header.frame_id = 'base_footprint'
+        t2.child_frame_id = 'base_link'
         t2.transform.rotation.w = 1.0
 
         self.tf_broadcaster.sendTransform([t1, t2])
 
         odom = Odometry()
         odom.header.stamp = now
-        odom.header.frame_id = "odom"
-        odom.child_frame_id = "base_footprint"
+        odom.header.frame_id = 'odom'
+        odom.child_frame_id = 'base_footprint'
         odom.pose.pose.position.x = float(self.x)
         odom.pose.pose.position.y = float(self.y)
         odom.pose.pose.orientation.z = qz
