@@ -11,8 +11,8 @@ amcl:
     odom_frame_id: "odom"
     set_initial_pose: true
     initial_pose:
-      x: 0.5893974304199219
-      y: 0.05
+      x: 2.1997387409210205
+      y: -1.1962696313858032
       z: 0.01
       yaw: 0.0
 
