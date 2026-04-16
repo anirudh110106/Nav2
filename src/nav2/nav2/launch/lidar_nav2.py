@@ -17,7 +17,7 @@ def generate_launch_description():
     params_file = '/home/rpd/Nav2/src/nav2/nav2/dwb_params.yaml'
 
     return LaunchDescription([
-
+        
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(rplidar_launch_file)
         ),
