@@ -131,9 +131,12 @@ class MotorOdom(Node):
 
         # angular motion
         ANGULAR_SCALE = 0.6
-        dth = ANGULAR_SCALE * (d1 + d2 + d3) / (3.0 * self.robot_radius)
+        raw_dth = (d1 + d2 + d3) / (3.0 * self.robot_radius)
 
-        # midpoint integration
+        if abs(raw_dth) < 0.02:
+            dth = 0.0
+        else:
+            dth = 0.6 * raw_dth
         avg_theta = self.theta + dth / 2.0
 
         self.x += dx * math.cos(avg_theta) - dy * math.sin(avg_theta)
