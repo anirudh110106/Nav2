@@ -58,24 +58,20 @@ class MotorOdom(Node):
     def unwrap(self, curr, prev, acc):
         diff = curr - prev
 
-        # Wrap handling
+        # Handle wrap   
         if diff > 2048:
             diff -= 4096
         elif diff < -2048:
             diff += 4096
 
-        # 🚨 NEW: direction consistency check
-        last_diff = getattr(self, 'last_diff', 0)
+        # Reject unrealistic jumps, but UPDATE state
+        MAX_TICKS_PER_STEP = 200   # tune (very important)
 
-        # if sudden direction flip → reject
-        if abs(last_diff) > 5 and (diff * last_diff < 0):
-            return acc, prev
+        if abs(diff) > MAX_TICKS_PER_STEP:
+            # We ignore the distance (return the old acc)
+            # BUT we update prev to curr so we don't get permanently stuck!
+            return acc, curr
 
-        # 🚨 tighter limit
-        if abs(diff) > 150:
-            return acc, prev
-
-        self.last_diff = diff
         return acc + diff, curr
 
     def update(self):
