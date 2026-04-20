@@ -1,4 +1,4 @@
-image: /home/rpd/Nav2/src/nav2/nav2/my_new_map.pgm
+image: /home/rpd/Nav2/src/nav2/nav2/map/my_new_map.pgm
 mode: trinary
 resolution: 0.050
 origin: [-3.702, -2.610, 0]
