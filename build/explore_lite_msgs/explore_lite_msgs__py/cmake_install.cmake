@@ -1,8 +1,8 @@
-# Install script for directory: /home/anirudh/Nav2/build/explore_lite_msgs/explore_lite_msgs__py
+# Install script for directory: /home/rpd/Nav2/build/explore_lite_msgs/explore_lite_msgs__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/anirudh/Nav2/install/explore_lite_msgs")
+  set(CMAKE_INSTALL_PREFIX "/home/rpd/Nav2/install/explore_lite_msgs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

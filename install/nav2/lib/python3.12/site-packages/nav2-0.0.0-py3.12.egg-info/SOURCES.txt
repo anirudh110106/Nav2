@@ -11,6 +11,7 @@ setup.py
 nav2/__init__.py
 nav2/atob.py
 nav2/laser.py
+nav2/new_odom.py
 nav2/odom.py
 nav2/launch/lidar_nav2.py
 nav2/launch/nav2.py

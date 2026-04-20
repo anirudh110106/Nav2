@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DROS_PACKAGE_NAME=\"explore_lite_msgs\" -Dexplore_lite_msgs__rosidl_generator_py_EXPORTS
 
-C_INCLUDES = -I/home/anirudh/Nav2/build/explore_lite_msgs/rosidl_generator_c -I/home/anirudh/Nav2/build/explore_lite_msgs/rosidl_generator_py -isystem /opt/ros/jazzy/include/rosidl_runtime_c -isystem /opt/ros/jazzy/include/rcutils -isystem /opt/ros/jazzy/include/rosidl_typesupport_interface -isystem /usr/lib/python3/dist-packages/numpy/core/include -isystem /usr/include/python3.12
+C_INCLUDES = -I/home/rpd/Nav2/build/explore_lite_msgs/rosidl_generator_c -I/home/rpd/Nav2/build/explore_lite_msgs/rosidl_generator_py -isystem /opt/ros/jazzy/include/rosidl_runtime_c -isystem /opt/ros/jazzy/include/rcutils -isystem /opt/ros/jazzy/include/rosidl_typesupport_interface -isystem /usr/lib/python3/dist-packages/numpy/core/include -isystem /usr/include/python3.12
 
 C_FLAGS = -fPIC -Wall -Wextra
 

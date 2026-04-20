@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DROSIDL_GENERATOR_C_BUILDING_DLL_explore_lite_msgs -DROS_PACKAGE_NAME=\"explore_lite_msgs\"
 
-C_INCLUDES = -I/home/anirudh/Nav2/build/explore_lite_msgs/rosidl_generator_c -isystem /opt/ros/jazzy/include/rosidl_runtime_c -isystem /opt/ros/jazzy/include/rcutils -isystem /opt/ros/jazzy/include/rosidl_typesupport_interface
+C_INCLUDES = -I/home/rpd/Nav2/build/explore_lite_msgs/rosidl_generator_c -isystem /opt/ros/jazzy/include/rosidl_runtime_c -isystem /opt/ros/jazzy/include/rcutils -isystem /opt/ros/jazzy/include/rosidl_typesupport_interface
 
 C_FLAGS = -std=gnu11 -fPIC -Wall
 

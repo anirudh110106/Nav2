@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/anirudh/Nav2/src/rplidar_ros
-# Build directory: /home/anirudh/Nav2/build/rplidar_ros
+# Source directory: /home/rpd/Nav2/src/rplidar_ros
+# Build directory: /home/rpd/Nav2/build/rplidar_ros
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
