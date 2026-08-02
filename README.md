@@ -51,7 +51,7 @@ source install/setup.bash
 ---
 
 # Nav2 integration :-
-<img width="2000" height="669" alt="image" src="https://github.com/user-attachments/assets/83a380e9-b03c-4a15-95f5-d395b7743fd8" />
+<img width="3093" height="1036" alt="Nav2" src="https://github.com/user-attachments/assets/9b86305c-a87b-4885-be53-57cc45861de9" />
 
 ## Usage
 
@@ -76,7 +76,7 @@ Save the resulting map into the `nav2/map/` directory once mapping is complete.
 ## 2. Navigation (Nav2)
 #### Navigation pipeline :-
 
-<img width="1872" height="867" alt="image" src="https://github.com/user-attachments/assets/c2cedc50-783a-4971-820e-d3f0a30dc6de" />
+<img width="3595" height="1665" alt="image" src="https://github.com/user-attachments/assets/418df01c-a1b1-4f95-8f8a-9b17f8872775" />
 
 
 Run autonomous navigation on a previously built map.
@@ -123,6 +123,8 @@ rplidar_ros/                 # RPLIDAR driver package (SDK, launch files, udev r
 
 Pre-built maps are stored in `nav2/nav2/map/` :
 These maps can be used as a benchmark or visual guidance to compare with your own recorded map . These maps will not work in your environment and can effect the behaviour of the rover due to the conflict of local and global maps .
+<img width="445" height="386" alt="map" src="https://github.com/user-attachments/assets/58cd9f52-0acb-4f6a-994d-03b5a3cae643" />
+
 
 - `lidar_map.pgm` / `lidar_map.yaml` — map built with LiDAR
 - `my_new_map.pgm` / `my_new_map.yaml` — additional/updated map
