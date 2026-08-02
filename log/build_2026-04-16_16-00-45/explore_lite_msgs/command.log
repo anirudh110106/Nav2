@@ -1,4 +1,0 @@
-Invoking command in '/home/rpd/Nav2/build/explore_lite_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rpd/Nav2/build/explore_lite_msgs -- -j4 -l4
-Invoked command in '/home/rpd/Nav2/build/explore_lite_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rpd/Nav2/build/explore_lite_msgs -- -j4 -l4
-Invoking command in '/home/rpd/Nav2/build/explore_lite_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/rpd/Nav2/build/explore_lite_msgs
-Invoked command in '/home/rpd/Nav2/build/explore_lite_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/rpd/Nav2/build/explore_lite_msgs

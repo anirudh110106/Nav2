@@ -1,6 +1,0 @@
-Invoking command in '/home/rpd/Nav2/build/multirobot_map_merge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/rpd/Nav2/src/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/rpd/Nav2/install/multirobot_map_merge
-Invoked command in '/home/rpd/Nav2/build/multirobot_map_merge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/rpd/Nav2/src/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/rpd/Nav2/install/multirobot_map_merge
-Invoking command in '/home/rpd/Nav2/build/multirobot_map_merge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rpd/Nav2/build/multirobot_map_merge -- -j4 -l4
-Invoked command in '/home/rpd/Nav2/build/multirobot_map_merge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/rpd/Nav2/build/multirobot_map_merge -- -j4 -l4
-Invoking command in '/home/rpd/Nav2/build/multirobot_map_merge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/rpd/Nav2/build/multirobot_map_merge
-Invoked command in '/home/rpd/Nav2/build/multirobot_map_merge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/rpd/Nav2/build/multirobot_map_merge

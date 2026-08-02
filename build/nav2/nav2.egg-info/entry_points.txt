@@ -1,3 +1,0 @@
-[console_scripts]
-laser_node = nav2.laser:main
-odom = nav2.odom:main
