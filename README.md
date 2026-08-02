@@ -1,4 +1,4 @@
-# Nav2
+# Nav2 Integration for Lekiwi-Rover
 The autonomous navigation pipeline is powered by the ROS2 Nav2 framework and SLAM (Simultaneous Localization and Mapping). This is implemented by two distinct sensor , an Intel RealSense depth camera to convert the depth to a 2d LaserScan and a dedicated LiDAR sensor. SLAM is first utilized to scan and construct a static map of the operating workspace. Once the map is established, the Nav2 stack takes over for autonomous navigation. It uses AMCL to accurately localize the robot by fusing the active sensor's scan data with continuous wheel odometry provided by the ST3215 servos. You can checkout the workflow image below .
 
 
